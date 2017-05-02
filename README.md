@@ -16,7 +16,7 @@ Investigating the EXIF metadata of the photos I have taken with my Nikon D80, wi
 # Data
 To begin, I chose a 5 month period (Jan-May 2016) wherein I took ~2500 photos. This decision was made because in June 2016 I purchased an old manual 50mm lens which didn't log certain aspects of the Exif data.
 
-It is simple to view an individual image's Exif data (Windows: Right Click -> Properties -> Details) but less so for a couple thousand images. After looking online, I found Phil Harvey's ExifTool (http://www.sno.phy.queensu.ca/~phil/exiftool/). Using this program, I exported the Exif of my photos into a CSV, which I then cleaned and studied. Sifting through the exported CSV's columns in Excel, I made an new Excel spreadsheet with just the relevant data.
+It is simple to view an individual image's Exif data (Windows: Right Click -> Properties -> Details) but less so for a couple thousand images. After looking online, I found Phil Harvey's ExifTool (http://www.sno.phy.queensu.ca/~phil/exiftool/). Using this program, I exported the Exif of my photos into a CSV, which I then cleaned and studied. Sifting through the exported CSV's columns in Excel, I made an new Excel spreadsheet (.xlsx filetype) with just the relevant data. In this new spreadsheet, I have changed the focal length to equivalent focal length.
 
 # Analysis
 Analyzing the new spreadsheet in R Studio, I studied aspects of the Exif to learn about my style of shooting.
