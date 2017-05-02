@@ -1,6 +1,13 @@
 # Exif?
 Exchangeable Image Format (Exif) is a standard for image files that specifies how to format the image's metadata. This metadata describes the photo and how it was taken: did you use flash? what was your shutter speed? what is the image's resolution? "Exif" is often used to refer to the metadata itself and will be for this project.
 
+## Terminology
+Here are some definitions of terms that will come up in this project:
+ISO: The camera's sensitivity to light. The higher the number, the more sensitive.
+Aperture: Often indicated with f/x (where x is a number (0,100)), it refers to the width of the diaphragm that the light travels through. higher numbers means a smaller hole. [Aperture]https://en.wikipedia.org/wiki/Aperture#/media/File:Apertures.jpg
+
+
+
 # Outline
 Investigating the EXIF metadata of the photos I have taken with my Nikon D80, with a 18-135mm f/3.5-5.6 kit lens. The purpose of this project is to study my style of photography, and investigate what camera/lens I should purchase next.
 
