@@ -6,9 +6,20 @@ First we set the working directory
 
 Then we load a package to handle Excel files (since I saved my cleaned-up Exif CSV as an .xlsx)
 
-`>load.packages("xlsx") `
+`>load.packages("xlsx") ` <br />
  ` >require("xlsx")`
 
 Then we load our file into a data.frame for R Studio, calling it 'exif', and working with the 1st (and only) page of the xlsx
 
 `exif<-read.xlsx("exif.xlsx",1)`
+
+Since R doesn't have a built-in function to find the mode of a dataset, we build one ourselves:
+
+```Mode <- function(x) {
+     ux <- unique(x)
+     ux[which.max(tabulate(match(x, ux)))]
+ }```
+ 
+ Then we study the mode of all our 
+
+
