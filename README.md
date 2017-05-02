@@ -6,7 +6,7 @@ Here are some definitions of terms that will come up in this project:
 
 **ISO**: The camera's sensitivity to light. The higher the number, the more sensitive. <br />
 **Shutter Speed**: The amount of time the camera allows light in for. Usually measured in fractions of a second. <br />
-**Focal Length**: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger Focal Length means a smallers FOV but larger magnification. <br />
+**Focal Length**: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger focal length means a smallers FOV but larger magnification. <br />
 **Aperture**: The size of the diaphragm that the light travels through in the lens. Often indicated with f/x (where x is a number (0,100)), or "f-stop". Higher numbers mean a smaller hole. When you talk about a lens, you generally say it's lowest aperture. <br />
 **Equivalent Focal Length**: My camera has a 2/3 size sensor, which ends up making the focal length 3/2 times as big. Thus the 18-135mm lens, when used on my camera, is the equivalent of a 27-202.5mm lens.
 
