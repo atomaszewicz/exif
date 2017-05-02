@@ -7,13 +7,7 @@ Investigating the EXIF metadata of the photos I have taken with my Nikon D80, wi
 # Data
 To begin, I chose a 5 month period (Jan-May 2016) wherein I took ~2500 photos. This decision was made because in June 2016 I purchased an old manual 50mm lens which didn't log certain aspects of the Exif data.
 
-It is simple to view an individual image's Exif data (Windows: Right Click -> Properties -> Details) but less so for a couple thousand images. After looking online, I found Phil Harvey's ExifTool (http://www.sno.phy.queensu.ca/~phil/exiftool/). This program attracted me because it featured a command-line option, you can ouput Exif to a CSV, and it supported many file types.
-
-# ExifTool
-Using this program was very simple: Open command prompt, navigate to the program's folder and with one line create the CSV:
-```exiftool -csv -r C:\Users\Alex\Pictures\D80 >exif.csv```
-
-The `-csv` option is specifying the output, `-r` is to go recursively through the sub-folders in my photography folder, `C:\Users\Alex\Pictures\D80` is my photography folder and `exif.csv` is the output file.
+It is simple to view an individual image's Exif data (Windows: Right Click -> Properties -> Details) but less so for a couple thousand images. After looking online, I found Phil Harvey's ExifTool (http://www.sno.phy.queensu.ca/~phil/exiftool/). Using this program, I exported the Exif of my photos into a CSV. I cleaned up this data in Excel, then I studied it in R studio.
 
 # Data Cleaning
 
