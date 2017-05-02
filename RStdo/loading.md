@@ -15,7 +15,8 @@ Then we load our file into a data.frame for R Studio, calling it 'exif', and wor
 
 Since R doesn't have a built-in function to find the mode of a dataset, we build one ourselves:
 
-```Mode <- function(x) {
+```R
+Mode <- function(x) {
      ux <- unique(x)
      ux[which.max(tabulate(match(x, ux)))]
  }```
