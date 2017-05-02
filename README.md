@@ -5,7 +5,7 @@ Exchangeable Image Format (Exif) is a standard for image files that specifies ho
 Here are some definitions of terms that will come up in this project:
 
 **ISO**: The camera's sensitivity to light. The higher the number, the more sensitive. My camera has an ISO range of 100-10,000. <br />
-**Shutter Speed**: The amount of time the camera allows light in for. Measure in seconds and my camera can shoot from 1/4000s-30s  <br />
+**Shutter Speed**: The amount of time the camera allows light in for , it is measured in seconds. My camera can take exposures 1/4000s-30s.  <br />
 **Focal Length**: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger focal length means a smallers FOV but larger magnification. Focal lengths generally range from 18mm-200mm, with standard sizes being 35mm and 50mm. <br />
 **Equivalent Focal Length**: My camera has a 2/3 size sensor, which ends up making the focal length 3/2 times as big. Thus the 18-135mm zoom lens, when used on my camera, is the equivalent of a 27-202.5mm lens. <br />
 **Aperture**: The size of the diaphragm that the light travels through in the lens. This ends up translating into how much of the scene is in focus. Higher numbers mean a smaller hole, and more in focus. When you detail a lens, you generally say it's largest aperture (smallest number). Aperture is also called "f-stop" or indicated by f/x, where x as a number (usually between 1.4 and 64). 
