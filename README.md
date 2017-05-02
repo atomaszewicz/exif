@@ -6,7 +6,7 @@ Here are some definitions of terms that will come up in this project:
 
 ISO: The camera's sensitivity to light. The higher the number, the more sensitive. 
 
-Aperture: Often indicated with f/x (where x is a number (0,100)), it refers to the width of the diaphragm that the light travels through. higher numbers means a smaller hole. ![Aperture](https://en.wikipedia.org/wiki/Aperture#/media/File:Apertures.jpg "Aperture")
+Aperture: Often indicated with f/x (where x is a number (0,100)), it refers to the width of the diaphragm that the light travels through. higher numbers means a smaller hole. ![Aperture](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Apertures.jpg/320px-Apertures.jpg "Aperture Example")
 
 
 
