@@ -1,0 +1,3 @@
+#Exif?
+
+Exchangeable Image Format (Exif) is a standard for image (and audio) files that specifies how to format the image's metadata. This metadata describes the photo and how it was taken: did you use flash? what was your shutter speed? what is the image's resolution? "Exif" is often used to refer to the metadata itself and will be for this project.
