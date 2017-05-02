@@ -10,7 +10,7 @@ Then we load a package to handle Excel files (since I saved my cleaned-up Exif C
 
 ```R
 >load.packages("xlsx") 
-``` <br />
+```
  ```R
  >require("xlsx")
  ```
@@ -26,8 +26,7 @@ Since R doesn't have a built-in function to find the mode of a dataset, we build
 ```R
 Mode <- function(x) {
      ux <- unique(x)
-     ux[which.max(tabulate(match(x, ux)))]
- }
+     ux[which.max(tabulate(match(x, ux)))]}
  ```
  
  Then we study the mode of our columns of interest:
