@@ -1,0 +1,4 @@
+# Links for ExifTool
+Phil Harvey's ExifTool can be found here: http://sno.phy.queensu.ca/~phil/exiftool/
+
+Some literature abou exporting Exif to a database: http://sno.phy.queensu.ca/~phil/exiftool/faq.html#Q12
