@@ -5,10 +5,8 @@ Exchangeable Image Format (Exif) is a standard for image files that specifies ho
 Here are some definitions of terms that will come up in this project: 
 
 *ISO*: The camera's sensitivity to light. The higher the number, the more sensitive. <br />
-*Shutter Speed*: The amount of time the camera allows light in for. Usually measure in fractions of a second.
-
-*Focal Length*: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger Focal Length means a smallers FOV but larger magnification.
-
+*Shutter Speed*: The amount of time the camera allows light in for. Usually measure in fractions of a second. <br />
+*Focal Length*: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger Focal Length means a smallers FOV but larger magnification. <br />
 *Aperture*: The size of the diaphragm that the light travels through in the lens. Often indicated with f/x (where x is a number (0,100)), or "f-stop". Higher numbers mean a smaller hole. 
 
 # Outline
