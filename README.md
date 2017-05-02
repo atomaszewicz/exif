@@ -1,3 +1,13 @@
-# exif
-Investigating the EXIF metadata of the photos I took with my Nikon D80, with a 18-135mm f/3.5-5.6 lens. 
-The purpose of this project is to study my style of photography, and investigate what camera/lens I should purchase next.
+# Exif?
+Exchangeable Image Format (Exif) is a standard for image files that specifies how to format the image's metadata. This metadata describes the photo and how it was taken: did you use flash? what was your shutter speed? what is the image's resolution? "Exif" is often used to refer to the metadata itself and will be for this project.
+
+#Outline
+Investigating the EXIF metadata of the photos I have taken with my Nikon D80, with a 18-135mm f/3.5-5.6 kit lens. The purpose of this project is to study my style of photography, and investigate what camera/lens I should purchase next.
+
+#Data
+To begin, I chose a 5 month period (Jan-May 2016) wherein I took ~2500 photos. This decision was made because in June 2016 I purchased an old manual 50mm lens which didn't log certain aspects of the Exif data.
+
+
+
+#Future Improvements
+To improve this project, I could bring in a much larger pool of data to work with. I would sort the photos post-June 2016 to using the 50mm lens and the kit lens, then analyze these data sets seperately.  
