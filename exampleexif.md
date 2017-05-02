@@ -1,6 +1,6 @@
 # An Example of Exif
 
-Here is an example of a photos's Exif data. It has been edited to be more readable and interesting.
+Here is an example of a photos's Exif data. It has been edited to be less technical and to ignore empty fields.
 
 |Property|Value|
 |--------|------|
