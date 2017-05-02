@@ -20,6 +20,13 @@ Since R doesn't have a built-in function to find the mode of a dataset, we build
      ux[which.max(tabulate(match(x, ux)))]
  }```
  
- Then we study the mode of all our 
+ Then we study the mode of our columns of interest:
+ 
+ `prop<-names(exif)`
+ ```for(x in 3:6){
+      print(prop[x]: Mode(exif[[x]])
+    }```
+   
+
 
 
