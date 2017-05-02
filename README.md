@@ -4,10 +4,10 @@ Exchangeable Image Format (Exif) is a standard for image files that specifies ho
 ## Terminology
 Here are some definitions of terms that will come up in this project: 
 
-*ISO*: The camera's sensitivity to light. The higher the number, the more sensitive. <br />
-*Shutter Speed*: The amount of time the camera allows light in for. Usually measure in fractions of a second. <br />
-*Focal Length*: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger Focal Length means a smallers FOV but larger magnification. <br />
-*Aperture*: The size of the diaphragm that the light travels through in the lens. Often indicated with f/x (where x is a number (0,100)), or "f-stop". Higher numbers mean a smaller hole. 
+**ISO**: The camera's sensitivity to light. The higher the number, the more sensitive. <br />
+**Shutter Speed**: The amount of time the camera allows light in for. Usually measure in fractions of a second. <br />
+**Focal Length**: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger Focal Length means a smallers FOV but larger magnification. <br />
+**Aperture**: The size of the diaphragm that the light travels through in the lens. Often indicated with f/x (where x is a number (0,100)), or "f-stop". Higher numbers mean a smaller hole. 
 
 # Outline
 Investigating the EXIF metadata of the photos I have taken with my Nikon D80, with a 18-135mm f/3.5-5.6 kit lens. The purpose of this project is to study my style of photography, and investigate what camera/lens I should purchase next.
