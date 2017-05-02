@@ -1,6 +1,6 @@
-# An Example of a Photo's Exif Data
+# An Example of Exif
 
-Here is an example of an abridge version of a photos's Exifdata. It has been edited to be more readable and interesting.
+Here is an example of a photos's Exif data. It has been edited to be more readable and interesting.
 
 |Property|Value|
 |--------|------|
