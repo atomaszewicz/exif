@@ -4,8 +4,8 @@ Exchangeable Image Format (Exif) is a standard for image files that specifies ho
 ## Terminology
 Here are some definitions of terms that will come up in this project:
 
-**ISO**: The camera's sensitivity to light. The higher the number, the more sensitive. My camera has an ISO range of 100-10,000. <br />
-**Shutter Speed**: The amount of time the camera allows light in for , it is measured in seconds. My camera can take exposures 1/4000s-30s.  <br />
+**ISO**: The camera's sensitivity to light. The higher the number, the more sensitive. If a scene is dark, one needs to shoot at a high ISO, in broad day, lower ISO will suffice. My camera has an ISO range of 100-10,000. <br />
+**Shutter Speed**: The amount of time the camera allows light in for , it is measured in seconds. Faster shutter speeds (thousandths of a second) are used when capturing quickly moving things, and used for things like sports. Longer shutter speeds (upwards of a quarter of a second) are usually used for long exposures, such as for night sky. My camera can take exposures between 1/4000s-30s.  <br />
 **Focal Length**: A measure of the field-of-view (FOV) and maginification of a camera lens. Usually measured in mm, a larger focal length means a smallers FOV but larger magnification. Focal lengths generally range from 18mm-200mm, with standard sizes being 35mm and 50mm. <br />
 **Equivalent Focal Length**: My camera has a 2/3 size sensor, which ends up making the focal length 3/2 times as big. Thus the 18-135mm zoom lens, when used on my camera, is the equivalent of a 27-202.5mm lens. <br />
 **Aperture**: The size of the diaphragm that the light travels through in the lens. This ends up translating into how much of the scene is in focus. Higher numbers mean a smaller hole, and more in focus. When you detail a lens, you generally say it's largest aperture (smallest number). Aperture is also called "f-stop" or indicated by f/x, where x as a number (usually between 1.4 and 64). 
@@ -30,8 +30,9 @@ As mentioned, shooting at lower focal lengths means that the scene is less magni
 
 Having used f/3.5, my lens' largest aperture the most (and even my 2nd most used aperture was f/5.6, which is the lens' largest aperture for focal lengths above 70mm) means that I like to have a lot of light in my scene, but not a lot in focus. The later point implies that I like isolating one subject to have in focus.
 
-We note that though my camera can go up to ISO-10,000, I never shot above ISO-3200. This is no surprise, as I know the quality of the image begins to deteriorate above ISO-3200 on my decade-old camera. Further, I took more than half (52.8%) of my photos below and including ISO-500.
+We note that though my camera can go up to ISO-10,000, I never shot above ISO-3200. This is no surprise, as I know the quality of the image begins to deteriorate above ISO-3200 on my decade-old camera. Further, I took more than half (52.9%) of my photos below and including ISO-500, which figures, as I mostly shoot in the daytime.
 
+A shutter speed of 1/200 s is relatively slow, this agrees with what I know: that I mostly shoot still life, and rarely things like sports. The fastest shutter speed I used was 1/4000s, the maximum for my camera, but the slowest was 1.1s, not quite the 30s. In fact, I rarely did anything slower than 1/4s, with only 36 such occasions (1.5% of my shots).
 
 
 
