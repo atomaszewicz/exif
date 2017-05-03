@@ -23,7 +23,7 @@ exif<-read.xlsx("exif.xlsx",1)
 
 
 
-Since R doesn't have a built-in function to find the mode of a dataset, we build one ourselves:
+Since R doesn't have a built-in function to find the mode of a dataset, we find a clever, terse version online and impliment it:
 
 ```R
 Mode <- function(x) {
@@ -50,13 +50,9 @@ colnames(mode)<-c("Feature","Mode")
 |Aperture|3.5|
 |Shutter Speed|0.005|
 |Focal Length|27|
-ISO|200|
+|ISO|200|
  
- ```R
- for(x in 3:6){
-      print(prop[x]: Mode(exif[[x]])}
- ```
-   
+For discussion on these result see README Analysis
 
 blah blah blah
 
