@@ -21,8 +21,7 @@ Then we load our file into a data frame for R Studio, calling it 'exif', and wor
 exif<-read.xlsx("exif.xlsx",1)
 ```
 
-
-
+## Mode
 Since R doesn't have a built-in function to find the mode of a dataset, we find a clever, terse version online and impliment it:
 
 ```R
@@ -54,9 +53,74 @@ colnames(mode)<-c("Feature","Mode")
  
 For discussion on these result see README Analysis
 
+## ISO
+
+Next I study the ISO numbers. Firstly, I know that i rarely shoot above ISO-3200, so i check to see if this is true
+
+```R
+NROW(c(subset(exif$ISO,ISO>3200)))
+[1] 0
+```
+There are no such rows, as expected.
+
+Next I know that I shoot mostly in the day time, wherein one usually does not need to exceed ISO-500.
+
+```R
+NROW(c(subset(exif$ISO,ISO<501)))/NROW(exif)
+[1] 0.52891
+```
+This 52.9% is a little lower than I expected, so maybe, though I usually shoot in the day time, I photograph low-light scenes.
+
+
+## Shutter Speed
+
+First I want to see the fastest shutter speed I used:
+
+```R
+min(exif$Shutter.Speed)
+[1]0.00025
+```
+So fastest is 0.00025s (1/4000 s), which is the quickest my camera can go.
+
+Next, the slowest shutter speed:
+
+```R
+max(exif$Shutter.Speed)
+[1] 1.1
+```
+1.1s is a ways from the 30s maximum of my camera, but since I rarely take long exposures, this comes as no surprise. Even slower than 1/10s will likely be blurry without a tripod (which I don't own) or a nice flat surface. Let's see how often I shot this slow:
+
+```R
+NROW(c(subset(exif$Shutter.Speed,Shutter.Speed>0.1)))
+[1] 143
+NROW(c(subset(exif$Shutter.Speed,Shutter.Speed>0.1)))/NROW(exif)
+[1] 0.058
+```
+
+So I only used a shutter speed of slower than 1/10s 5.8% of the time, a bit more often than I expected. In hindsight, long exposures are quite difficult, and often take many attempts, so though I didn't have many sessions, for each one I would take many photos.
+
+## Aperture
+
+Let's find the largest and smallest apertures that I shot with:
+
+```R
+min(exif$Aperture)
+[1] 3.5
+max(exif$Aperture)
+[1] 36
+```
+The largest aperture I used was f/3.5, my camera's largest, and smallest used was f/36, it's smallest. 
+
+
+
+
 blah blah blah
 
-Graphing the Aperture values:
+Let's visualize our data. First we will load our favorite plotting plugin:
+
+```R
+install.packages("ggplot2")
+require("ggplot2")
 
 ```R
 ap<-ggplot(exif,aes(Aperture))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30),limits=c(3,30))+ggtitle("Aperture Usage*",subtitle="18-135mm f/3.5-5.6 Nikkor Lens, Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")
