@@ -3,16 +3,16 @@
 First we set the working directory
 
 ```R
->setwd("C:/Users/Alex/Documents/Data/Camera")
+setwd("C:/Users/Alex/Documents/Data/Camera")
 ```
 
 Then we load a package to handle Excel files (since I saved my cleaned-up Exif CSV as an .xlsx)
 
 ```R
->load.packages("xlsx") 
+load.packages("xlsx") 
 ```
  ```R
- >require("xlsx")
+ require("xlsx")
  ```
 
 Then we load our file into a data frame for R Studio, calling it 'exif', and working with the 1st (and only) page of the xlsx
@@ -50,12 +50,18 @@ colnames(mode)<-c("Feature","Mode")
 |Shutter Speed|0.005|
 |Focal Length|27|
 |ISO|200|
- 
-For discussion on these result see README Analysis
+
+The aperture is the lens' largest and focal length is the lens' smallest, so this means that I would often shoot without adjusting the lens. One could interpret this as meaning that I either am impatient in shooting and/or shoot things on-the-fly. A common rule is to ISO and shutter speed as reciprocals, a rule which I evidently follow.
+
+As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
+
+Having used f/3.5, my lens' largest aperture the most (and even my 2nd most used aperture was f/5.6, which is the lens' largest aperture for focal lengths above 70mm) means that I like to have a lot of light in my scene, but not a lot in focus. The later point implies that I like isolating one subject to have in focus.
+
+A shutter speed of 1/200 s is relatively slow, this agrees with what I know: that I mostly shoot still life, and rarely things like sports.
 
 ## ISO
 
-Next I study the ISO numbers. Firstly, I know that i rarely shoot above ISO-3200, so i check to see if this is true
+Next I study my usage of ISO. Firstly, I know that I rarely shoot above ISO-3200, since my decade-old camera doesn't perform well above this ISO value.
 
 ```R
 NROW(c(subset(exif$ISO,ISO>3200)))
@@ -66,15 +72,15 @@ There are no such rows, as expected.
 Next I know that I shoot mostly in the day time, wherein one usually does not need to exceed ISO-500.
 
 ```R
-NROW(c(subset(exif$ISO,ISO<501)))/NROW(exif)
+NROW(c(subset(exif$ISO,ISO<=500)))/NROW(exif)
 [1] 0.52891
 ```
-This 52.9% is a little lower than I expected, so maybe, though I usually shoot in the day time, I photograph low-light scenes.
+This 52.9% is a little lower than I expected, so maybe, though I usually shoot in the day time, I photograph low-light scenes (which require a higher sensitivity to light i.e. higher ISO)
 
 
 ## Shutter Speed
 
-First I want to see the fastest shutter speed I used:
+First, what is the fastest shutter speed I used?
 
 ```R
 min(exif$Shutter.Speed)
@@ -108,9 +114,16 @@ min(exif$Aperture)
 [1] 3.5
 max(exif$Aperture)
 [1] 36
+NROW(c(subset(exif$Aperture,Aperture=36)))
+[1] 1
 ```
-The largest aperture I used was f/3.5, my camera's largest, and smallest used was f/36, it's smallest. 
+The largest aperture I used was f/3.5, my camera's largest, and smallest used was f/36, it's smallest, with only one such occurance. Further, I think that I rarely shoot below f/11, since I like bright scenes and to have less in focus i.e. isolate the subject.
 
+```R
+NROW(c(subset(exif$Aperture,Aperture<=11)))/NROW(exif)
+[1] 0.855
+```
+This agrees with my presumption, I shoot below (inclusive) f/11 a total of 85.5% of the time.
 
 
 
