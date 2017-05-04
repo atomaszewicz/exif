@@ -24,7 +24,7 @@ Analyzing the new spreadsheet in R Studio, I studied aspects of the Exif to lear
 # Results
 I shot most at aperture f/3.5, focal length equivalent 27mm, ISO 200, and a shutter speed 1/200 seconds. 
 
-The aperture is the lens' largest and focal length is the lens' smallest, so this means that I would often shoot without adjusting the lens. One could interpret this as meaning that I either am impatient in shooting and/or shoot things on-the-fly. A common rule is to ISO and shutter speed as reciprocals, a rule which I evidently follow.
+The aperture is the lens' largest and focal length is the lens' smallest, so this means that I would often shoot without adjusting the lens. One could interpret this as meaning that I either am impatient in shooting and/or shoot things on-the-fly.
 
 As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
 
