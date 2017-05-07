@@ -6,7 +6,7 @@ First we set the working directory
 setwd("C:/Users/Alex/Documents/Data/Camera")
 ```
 
-Then we load a package to handle Excel files (since I saved my cleaned-up Exif CSV as an .xlsx)
+Then we load a package to handle Excel files (since I saved my cleaned-up Exif CSV as an Excel ".xlsx" file)
 
 ```R
 load.packages("xlsx") 
@@ -117,13 +117,19 @@ max(exif$Aperture)
 NROW(c(subset(exif$Aperture,Aperture=36)))
 [1] 1
 ```
-The largest aperture I used was f/3.5, my camera's largest, and smallest used was f/36, it's smallest, with only one such occurance. Further, I think that I rarely shoot below f/11, since I like bright scenes and to have less in focus i.e. isolate the subject.
+The largest aperture I used was f/3.5, my camera's largest, and smallest used was f/36, it's smallest, with only one such occurance. Anything larger than f/11 is seen as 'large', and smaller 'small'. I think that I shoot mostly 'large', since I like bright scenes and to have less in focus i.e. isolate the subject.
 
 ```R
 NROW(c(subset(exif$Aperture,Aperture<=11)))/NROW(exif)
 [1] 0.855
 ```
-This agrees with my presumption, I shoot below (inclusive) f/11 a total of 85.5% of the time.
+This agrees with my presumption, I shoot larger than or equal to f/11 a total of 85.5% of the time. Further, larger than f/5.6 is seen as 'very large' and I would say I shoot in this category a lot.
+
+```R
+NROW(c(subset(exif$Aperture,Aperture<=5.6)))/NROW(exif)
+[1] 0.437
+```
+So nearly half my shots (43.7%) are in the 'very large' aperture category! As mentioned above, I know that I shoot mostly with a large aperture, but i didn't know it was this extreme!
 
 
 
