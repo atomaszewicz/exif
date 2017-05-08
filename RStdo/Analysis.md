@@ -10,9 +10,7 @@ Then we load a package to handle Excel files (since I saved my cleaned-up Exif C
 
 ```R
 load.packages("xlsx") 
-```
- ```R
- require("xlsx")
+require("xlsx")
  ```
 
 Then we load our file into a data frame for R Studio, calling it 'exif', and working with the 1st (and only) page of the xlsx
@@ -136,6 +134,46 @@ NROW(c(subset(exif$Aperture,Aperture<=5.6)))/NROW(exif)
 So nearly half my shots (43.7%) are in the 'very large' aperture category! As mentioned above, I know that I shoot mostly with a large aperture, but i didn't know it was this extreme! 
 
 ## Focal Length
+
+We verify that the longest and shortest focal lengths are the same as the lens':
+
+```R
+max(exif$Focal.Length)
+[1]202 
+min(exif$Focal.Length
+[1]27
+```
+They are. Next we investigate how often we shoot at the mode focal length of 27mm:
+
+```R
+NROW(c(subset(exif$Focal.Length,Focal.Length==27)))/NROW(exif)
+[1] 0.517101
+```
+
+51.7% of the time! This is quite an interesting result. This fits in with my knowledge that I photograph many large scenes, which will require shorter focal lengths (due to the increased field of view [FOV]). Let's see what the next few modes are:
+
+```R
+Mode(c(subset(exif$Focal.Length,Focal.Length!=Mode(exif$Focal.Length))))
+[1] 30
+Mode(c(subset(exif$Focal.Length,Focal.Length!=27&Focal.Length!=30)))
+[1] 33
+```
+
+The second and third modes are the second and third shortest focal lengths, agreeing with my large FOV shooting style. Let's see how big the first mode is from the other two:
+
+```R
+NROW(c(subset(exif$Focal.Length,Focal.Length==30)))/NROW(c(subset(exif$Focal.Length,Focal.Length==27)))
+[1] 0.210
+NROW(c(subset(exif$Focal.Length,Focal.Length==33)))/NROW(c(subset(exif$Focal.Length,Focal.Length==27)))
+[1] 0.0953
+NROW(c(subset(exif$Focal.Length,Focal.Length==33)))/NROW(c(subset(exif$Focal.Length,Focal.Length==30)))
+[1] 0.453
+```
+
+So the second mode only has 21% as many occurances as the first, and the third mode 9.5% as many. 
+
+
+I must note that this might also imply that I just leave my lens at it's shortest focal length and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, so this could explain the very high number of 27mm shots. 
 
 
 
