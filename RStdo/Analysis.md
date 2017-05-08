@@ -57,7 +57,7 @@ Having used my lens' largest aperture, f/3.5, the most means that I like to have
 
 As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
 
-There is a rule-of-thumb that says having your shutter speed as the inverse of your ISO is a good way to properly expose (neither overexpose nor underexpose) your image. The modes for these are 1/200s and 200 respectively. This implies that I follow this rule, conciously or not.
+There is a rule-of-thumb that says having your shutter speed as the inverse of your ISO is a good way to properly expose (neither overexpose nor underexpose) your image. The modes for these are 1/200s (0.005s) and 200 respectively. This implies that I follow this rule, conciously or not.
 
 
 
@@ -143,38 +143,48 @@ max(exif$Focal.Length)
 min(exif$Focal.Length
 [1]27
 ```
-They are. Next we investigate how often we shoot at the mode focal length of 27mm:
+They are. How often did I shoot at the mode focal length of 27mm:
 
 ```R
 NROW(c(subset(exif$Focal.Length,Focal.Length==27)))/NROW(exif)
 [1] 0.517101
 ```
 
-51.7% of the time! This is quite an interesting result. This fits in with my knowledge that I photograph many large scenes, which will require shorter focal lengths (due to the increased field of view [FOV]). Let's see what the next few modes are:
+51.7% of the time! This is quite an interesting result. This fits in with my knowledge that I photograph many large scenes, which will require large field of views (FOV) and thus, short focal lengths. To investiage this suprising result, let's first see what the next few modes are:
 
 ```R
-Mode(c(subset(exif$Focal.Length,Focal.Length!=Mode(exif$Focal.Length))))
+m1<-subset(mode$Mode,mode$Feature=="Focal.Length")
+m2<-Mode(c(subset(exif$Focal.Length,Focal.Length!=m1)))
+print(m2)
 [1] 30
-Mode(c(subset(exif$Focal.Length,Focal.Length!=27&Focal.Length!=30)))
+m3<-Mode(c(subset(exif$Focal.Length,Focal.Length!=m1&Focal.Length!=m2)))
+print(m3)
 [1] 33
 ```
 
-The second and third modes are the second and third shortest focal lengths, agreeing with my large FOV shooting style. Let's see how big the first mode is from the other two:
+We find mode 1 (m1) by looking in our table of modes called 'mode' under the feature "Focal Length". The second and third modes are the second and third shortest focal lengths, agreeing with my large FOV shooting style. Let's see how big the first mode is compared to the other two:
 
 ```R
-NROW(c(subset(exif$Focal.Length,Focal.Length==30)))/NROW(c(subset(exif$Focal.Length,Focal.Length==27)))
+NROW(c(subset(exif$Focal.Length,Focal.Length==m2)))/NROW(c(subset(exif$Focal.Length,Focal.Length==m1)))
 [1] 0.210
-NROW(c(subset(exif$Focal.Length,Focal.Length==33)))/NROW(c(subset(exif$Focal.Length,Focal.Length==27)))
+NROW(c(subset(exif$Focal.Length,Focal.Length==m3)))/NROW(c(subset(exif$Focal.Length,Focal.Length==m1)))
 [1] 0.0953
-NROW(c(subset(exif$Focal.Length,Focal.Length==33)))/NROW(c(subset(exif$Focal.Length,Focal.Length==30)))
-[1] 0.453
 ```
 
-So the second mode only has 21% as many occurances as the first, and the third mode 9.5% as many. 
+So the second mode only has 21% as many occurances as the first, and the third mode, 9.5% as many. I shot at 27mm WAY more than at any other focal length. Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
+Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range.
 
-I must note that this might also imply that I just leave my lens at it's shortest focal length and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, so this could explain the very high number of 27mm shots. 
+In order to further, investigate the focal length data, I will create a data set that discludes all 27mm entries:
 
+```R
+fl27<-data.frame(subset(exif$Focal.Length,Focal.Length!=m1))
+colnames(fl27)<-"Focal.Length"
+
+NROW(fl27)
+[1] 1187
+```
+So we create our new data set "fl27" for focal lengths longer than 27mm, and see that the data set has ~1200 entries. 
 
 
 # blah blah blah
