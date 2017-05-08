@@ -38,7 +38,7 @@ The mode aperture is f/3.5, my camera's largest, I shoot larger than f/5.6 almos
 
 As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
 
-A rule-of-thumb is to properly expose your image (neither overexpose nor underexpose) is to have your shutter speed as the reciprocal of your ISO. With the modes being 1/200s and 200 (respectively), it is clear that I follow this rule, conciously or not.
+A rule-of-thumb is to properly expose your image (neither overexpose nor underexpose) is to have your shutter speed as the reciprocal of your ISO. With the modes being 1/200s (0.05) and 200 (respectively), it is clear that I follow this rule, conciously or not.
 
 
 # Future Improvements
