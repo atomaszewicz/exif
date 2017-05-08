@@ -22,18 +22,23 @@ It is simple to view an individual image's Exif data (Windows: Right Click -> Pr
 Analyzing the new spreadsheet in R Studio, I studied aspects of the Exif to learn about my style of shooting.
 
 # Results
-I shot most at aperture f/3.5, focal length equivalent 27mm, ISO 200, and a shutter speed 1/200 seconds. 
 
-The aperture is the lens' largest and focal length is the lens' smallest, so this means that I would often shoot without adjusting the lens. One could interpret this as meaning that I either am impatient in shooting and/or shoot things on-the-fly.
-
-As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
-
-Having used f/3.5, my lens' largest aperture the most (and even my 2nd most used aperture was f/5.6, which is the lens' largest aperture for focal lengths above 70mm) means that I like to have a lot of light in my scene, but not a lot in focus. The later point implies that I like isolating one subject to have in focus.
+|Feature|Mode|
+|-------|----|
+|ISO|200|
+|Shutter Speed|0.005|
+|Aperture|3.5|
+|Focal Length|27|
 
 We note that though my camera can go up to ISO-10,000, I never shot above ISO-3200. This is no surprise, as I know the quality of the image begins to deteriorate above ISO-3200 on my decade-old camera. Further, I took more than half (52.9%) of my photos below and including ISO-500, which figures, as I mostly shoot in the daytime.
 
 A shutter speed of 1/200 s is relatively slow, this agrees with what I know: that I mostly shoot still life, and rarely things like sports. The fastest shutter speed I used was 1/4000s, the maximum for my camera, but the slowest was 1.1s, not quite the 30s. In fact, I rarely did anything slower than 1/4s, with only 36 such occasions (1.5% of my shots).
 
+The mode aperture is f/3.5, my camera's largest, I shoot larger than f/5.6 almost half the time (43.7%) and I rarely shoot an aperture smaller than f/11, with this occuring on only 14.5% of my shots. So it is clear that I like large apertures, which implies that I like to have a lot of light in my scene, but not a lot in focus (i.e. isolating the subject with the focus).
+
+As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
+
+A rule-of-thumb is to properly expose your image (neither overexpose nor underexpose) is to have your shutter speed as the reciprocal of your ISO. With the modes being 1/200s and 200 (respectively), it is clear that I follow this rule, conciously or not.
 
 
 # Future Improvements
