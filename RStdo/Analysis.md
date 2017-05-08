@@ -46,18 +46,22 @@ colnames(mode)<-c("Feature","Mode")
 
 |Feature|Mode|
 |-------|----|
-|Aperture|3.5|
-|Shutter Speed|0.005|
-|Focal Length|27|
 |ISO|200|
+|Shutter Speed|0.005|
+|Aperture|3.5|
+|Focal Length|27|
 
-The aperture is the lens' largest and focal length is the lens' smallest, so this means that I would often shoot without adjusting the lens. One could interpret this as meaning that I either am impatient in shooting and/or shoot things on-the-fly. A common rule is to ISO and shutter speed as reciprocals, a rule which I evidently follow.
+ISO-200 is quite low (my camera's ISO range is 100-10,000). I know that I mostly shoot in the day time, which this number reinforces. 
+
+A shutter speed of 1/200 s is relatively slow, this agrees with what I know: that I mostly shoot still life, and rarely things like sports.
+
+Having used my lens' largest aperture, f/3.5, the most means that I like to have a lot of light in my scene, but not a lot in focus (i.e. isolating the subject with the focus).
 
 As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
 
-Having used f/3.5, my lens' largest aperture the most (and even my 2nd most used aperture was f/5.6, which is the lens' largest aperture for focal lengths above 70mm) means that I like to have a lot of light in my scene, but not a lot in focus. The later point implies that I like isolating one subject to have in focus.
+There is a rule-of-thumb that says having your shutter speed as the inverse of your ISO is a good way to properly expose (neither overexpose nor underexpose) your image. The modes for these are 1/200s and 200 respectively. This implies that I follow this rule, conciously or not.
 
-A shutter speed of 1/200 s is relatively slow, this agrees with what I know: that I mostly shoot still life, and rarely things like sports.
+
 
 ## ISO
 
@@ -129,11 +133,13 @@ This agrees with my presumption, I shoot larger than or equal to f/11 a total of
 NROW(c(subset(exif$Aperture,Aperture<=5.6)))/NROW(exif)
 [1] 0.437
 ```
-So nearly half my shots (43.7%) are in the 'very large' aperture category! As mentioned above, I know that I shoot mostly with a large aperture, but i didn't know it was this extreme!
+So nearly half my shots (43.7%) are in the 'very large' aperture category! As mentioned above, I know that I shoot mostly with a large aperture, but i didn't know it was this extreme! 
+
+## Focal Length
 
 
 
-blah blah blah
+# blah blah blah
 
 Let's visualize our data. First we will load our favorite plotting plugin:
 
