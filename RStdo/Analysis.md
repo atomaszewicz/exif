@@ -168,11 +168,54 @@ We find mode 1 (m1) by looking in our table of modes called 'mode' under the fea
 NROW(c(subset(exif$Focal.Length,Focal.Length==m2)))/NROW(c(subset(exif$Focal.Length,Focal.Length==m1)))
 [1] 0.210
 NROW(c(subset(exif$Focal.Length,Focal.Length==m3)))/NROW(c(subset(exif$Focal.Length,Focal.Length==m1)))
-[1] 0.0953
+[1] 0.095
 ```
+So the second mode only has 21% as many occurances as the first, and the third mode, 9.5% as many. 
 
-So the second mode only has 21% as many occurances as the first, and the third mode, 9.5% as many. I shot at 27mm WAY more than at any other focal length. Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
+To see if this is significant, we explore these figures in the other 3 data sets. First we create a function:
 
+```R
+m1m2m3function(x){
+    m1<-Mode(x)
+    m2<-Mode(c(subset(x,x!=m1)))
+    cat("m1/m2:", NROW(c(subset(x,x==m2)))/NROW(c(subset(x,x==m1))), "\n")
+    m3<-Mode(c(subset(x,x!=m1&x!=m2)))
+    cat("m1/m3:", NROW(c(subset(x,x==m3)))/NROW(c(subset(x,x==m1))))
+}
+m1m2m3(Aperture)
+m1/m2: 0.646
+m1/m3: 0.522
+
+m1m2m3(Shutter.Speed)
+m1/m2: 0.609 
+m1/m3: 0.569
+
+m1m2m3(ISO)
+m1/m2: 0.752 
+m1/m3: 0.709
+```
+Where 'cat()' is a strpiped-down version of 'print()' (not the lack of [1]s in the output). 
+
+|Feature|m1/m2|m1/m3|
+|------|-----|-----|
+|Aperture|0.646|0.522|
+|Shutter.Speed|0.609|0.569|
+|Focal.Length|0.210|0.0.095|
+|ISO|0.752|0.709|
+
+
+I shot at 27mm WAY more than at any other focal length. Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
+
+Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
+
+```R
+strg<-function(x){
+  return(as.character(substitute(x)))
+}
+
+m1m2<-function(x)
+
+```
 Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range.
 
 In order to further, investigate the focal length data, I will create a data set that discludes all 27mm entries:
