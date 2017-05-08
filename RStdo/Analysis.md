@@ -182,6 +182,7 @@ m1m2m3function(x){
     m3<-Mode(c(subset(x,x!=m1&x!=m2)))
     cat("m1/m3:", NROW(c(subset(x,x==m3)))/NROW(c(subset(x,x==m1))))
 }
+
 m1m2m3(Aperture)
 m1/m2: 0.646
 m1/m3: 0.522
@@ -196,15 +197,15 @@ m1/m3: 0.709
 ```
 Where 'cat()' is a strpiped-down version of 'print()' (not the lack of [1]s in the output). 
 
-|Feature|m1/m2|m1/m3|
-|------|-----|-----|
-|Aperture|0.646|0.522|
-|Shutter.Speed|0.609|0.569|
-|Focal.Length|0.210|0.0.095|
-|ISO|0.752|0.709|
+|Feature|m1/m2|m1/m3|Avg.|
+|------|-----|-----|---|
+|Aperture|0.646|0.522|0.584|
+|Shutter.Speed|0.609|0.569|0.589|
+|Focal.Length|0.210|0.095|0.152|
+|ISO|0.752|0.709|0.730|
+|Avg. (no F.L.)|0.669|0.599|0.634|
 
-
-I shot at 27mm WAY more than at any other focal length. Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
+So compared to the out features, I shot the mode focal length (27mm) WAY more than the second and third modes (and by extension, all focal lengths). Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
 Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
 
