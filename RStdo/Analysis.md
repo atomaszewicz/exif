@@ -12,6 +12,13 @@ Then we load a package to handle Excel files (since I saved my cleaned-up Exif C
 load.packages("xlsx") 
 require("xlsx")
  ```
+ 
+ We also load our favorite graph-creating package now so that we don't forget later:
+ 
+ ```R
+install.packages("ggplot2")
+require("ggplot2")
+```
 
 Then we load our file into a data frame for R Studio, calling it 'exif', and working with the 1st (and only) page of the xlsx
 
@@ -211,28 +218,28 @@ Let's put all the mode ratio data into a table:
 
 So compared to the out features, I shot the mode focal length (27mm) WAY more than the second and third modes (and by extension, all focal lengths). Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
-Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
+Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. 
 
 ```R
-strg<-function(x){
-  return(as.character(substitute(x)))
-}
-
-m1m2<-function(x)
-
+wide<-NROW(c(subset(exif$Focal.Length,Focal.Length<=35)))/NROW(exif)
+stele<-NROW(c(subset(exif$Focal.Length,Focal.Length>35&Focal.Length<=85)))/NROW(exif)
+tele<-NROW(c(subset(exif$Focal.Length,Focal.Length>85)))/NROW(exif)
 ```
-Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range.
-
-In order to further, investigate the focal length data, I will create a data set that discludes all 27mm entries:
+Where our variables represent the fraction of shots in that category: wide, slight telephoto and telephoto. Let's visualize this. We begin by making a data frame with this data:
 
 ```R
-fl27<-data.frame(subset(exif$Focal.Length,Focal.Length!=m1))
-colnames(fl27)<-"Focal.Length"
-
-NROW(fl27)
-[1] 1187
+style<-data.frame(Range=c("Wide","Slight.Tele","Telephoto"),Fraction=c(wide,stele,tele))
 ```
-So we create our new data set "fl27" for focal lengths longer than 27mm, and see that the data set has ~1200 entries. 
+Next we visualize in the form of a pie chart:
+
+```R
+#yo
+code
+```
+
+
+To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
+
 
 
 # blah blah blah
@@ -242,6 +249,7 @@ Let's visualize our data. First we will load our favorite plotting plugin:
 ```R
 install.packages("ggplot2")
 require("ggplot2")
+```
 
 ```R
 ap<-ggplot(exif,aes(Aperture))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30),limits=c(3,30))+ggtitle("Aperture Usage*",subtitle="18-135mm f/3.5-5.6 Nikkor Lens, Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")
