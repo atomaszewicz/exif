@@ -202,7 +202,7 @@ Where 'cat()' is a strpiped-down version of 'print()' (not the lack of [1]s in t
 |------|-----|-----|---|
 |Aperture|0.646|0.522|0.584|
 |Shutter.Speed|0.609|0.569|0.589|
-|*Focal.Length*|*0.210*|*0.095*|*0.152*|
+|**Focal.Length**|**0.210**|**0.095**|**0.152**|
 |ISO|0.752|0.709|0.730|
 |Avg. (no F.L.)|0.669|0.599|0.634|
 
