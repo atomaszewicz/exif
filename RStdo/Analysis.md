@@ -173,38 +173,41 @@ NROW(c(subset(exif$Focal.Length,Focal.Length==m3)))/NROW(c(subset(exif$Focal.Len
 ```
 So the second mode only has 21% as many occurances as the first, and the third mode, 9.5% as many. 
 
-To see if this is significant, we explore these figures in the other 3 data sets. First we create a function:
+To see if this is significant, we explore the first few modes in the other 3 data sets and compare. 
+
+Note: *At this point, I decide to only use the first 3 modes. I made this desicion after exploring the fourth, fifth and sixth modes of our datasets and realizing that the nature of all the features effects the later modes too strongly. I will include a graph of the fourth, fifth and sixth modes for all 4 features in the appendix, and further discuss my decision.*
+
+First we create a function to display the mode ratios:
 
 ```R
 m1m2m3function(x){
     m1<-Mode(x)
     m2<-Mode(c(subset(x,x!=m1)))
-    cat("m1/m2:", NROW(c(subset(x,x==m2)))/NROW(c(subset(x,x==m1))), "\n")
+    cat("m2/m1:", NROW(c(subset(x,x==m2)))/NROW(c(subset(x,x==m1))), "\n")
     m3<-Mode(c(subset(x,x!=m1&x!=m2)))
-    cat("m1/m3:", NROW(c(subset(x,x==m3)))/NROW(c(subset(x,x==m1))))
+    cat("m3/m1:", NROW(c(subset(x,x==m3)))/NROW(c(subset(x,x==m1))))
 }
-
-m1m2m3(Aperture)
-m1/m2: 0.646
-m1/m3: 0.522
-
-m1m2m3(Shutter.Speed)
-m1/m2: 0.609 
-m1/m3: 0.569
-
-m1m2m3(ISO)
-m1/m2: 0.752 
-m1/m3: 0.709
 ```
-Where 'cat()' is a strpiped-down version of 'print()' (not the lack of [1]s in the output). 
+Where 'cat()' is a stripped-down version of 'print()', and we use 'm2/m1' to signify the ratio of occurances of the second mode to the first, not the ratio of the modes numerical value. For example, the function gives output as this for the aperture mode ratios:
+```R
+m1m2m3(Aperture)
+m2/m1: 0.646
+m3/m1: 0.522
+```
+So there are 65% as many occurances of m2 as m1, and 52% as many occurances of m3 as m1:
 
-|Feature|m1/m2|m1/m3|Avg.|
+
+Let's put all the mode ratio data into a table:
+
+|Feature|m2/m1|m3/m1|Avg.|
 |------|-----|-----|---|
 |Aperture|0.646|0.522|0.584|
 |Shutter.Speed|0.609|0.569|0.589|
 |**Focal.Length**|**0.210**|**0.095**|**0.152**|
 |ISO|0.752|0.709|0.730|
 |Avg. (no F.L.)|0.669|0.599|0.634|
+
+
 
 So compared to the out features, I shot the mode focal length (27mm) WAY more than the second and third modes (and by extension, all focal lengths). Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
