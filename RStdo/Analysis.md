@@ -107,8 +107,10 @@ max(exif$Shutter.Speed)
 1.1s is a ways from the 30s maximum of my camera, but since I rarely take long exposures, this comes as no surprise. Even slower than 1/10s will likely be blurry without a tripod (which I don't own) or a nice flat surface. Let's see how often I shot this slow:
 
 ```R
+#First we see how many times I took a shot longer than 1/10s
 NROW(c(subset(exif$Shutter.Speed,Shutter.Speed>0.1)))
 [1] 143
+#Then we find how often this happened, as a fraction of total shots
 NROW(c(subset(exif$Shutter.Speed,Shutter.Speed>0.1)))/NROW(exif)
 [1] 0.058
 ```
@@ -161,10 +163,13 @@ NROW(c(subset(exif$Focal.Length,Focal.Length==27)))/NROW(exif)
 51.7% of the time! This is quite an interesting result. This fits in with my knowledge that I photograph many large scenes, which will require large field of views (FOV) and thus, short focal lengths. To investiage this suprising result, let's first see what the next few modes are:
 
 ```R
+#Finding mode 1 (m1) from our table of modes
 m1<-subset(mode$Mode,mode$Feature=="Focal.Length")
+#m2 is the mode, ignoring all of m1 values
 m2<-Mode(c(subset(exif$Focal.Length,Focal.Length!=m1)))
 print(m2)
 [1] 30
+#m3 is the mode ignoring m2 and m1
 m3<-Mode(c(subset(exif$Focal.Length,Focal.Length!=m1&Focal.Length!=m2)))
 print(m3)
 [1] 33
@@ -173,8 +178,10 @@ print(m3)
 We find mode 1 (m1) by looking in our table of modes called 'mode' under the feature "Focal Length". The second and third modes are the second and third shortest focal lengths, agreeing with my large FOV shooting style. Let's see how big the first mode is compared to the other two:
 
 ```R
+#Ratio of m2 to m1
 NROW(c(subset(exif$Focal.Length,Focal.Length==m2)))/NROW(c(subset(exif$Focal.Length,Focal.Length==m1)))
 [1] 0.210
+#Ratio of m3 to m1
 NROW(c(subset(exif$Focal.Length,Focal.Length==m3)))/NROW(c(subset(exif$Focal.Length,Focal.Length==m1)))
 [1] 0.095
 ```
@@ -187,6 +194,7 @@ Note: *At this point, I decide to only use the first 3 modes. I made this desici
 First we create a function to display the mode ratios:
 
 ```R
+#We take as unput 'x' which will be a feature (aperture, iso etc.), then find the 3 first modes, and print the ratios
 m1m2m3function(x){
     m1<-Mode(x)
     m2<-Mode(c(subset(x,x!=m1)))
@@ -218,23 +226,34 @@ Let's put all the mode ratio data into a table:
 
 So compared to the out features, I shot the mode focal length (27mm) WAY more than the second and third modes (and by extension, all focal lengths). Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
-Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 36-85mm as 'slight telephoto', and 86-200mm as 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. 
+Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 35-70mm as 'normal', 70-135mm as 'medium telephoto' and 135-200mm 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. 
 
 ```R
 wide<-NROW(c(subset(exif$Focal.Length,Focal.Length<=35)))/NROW(exif)
-stele<-NROW(c(subset(exif$Focal.Length,Focal.Length>35&Focal.Length<=85)))/NROW(exif)
-tele<-NROW(c(subset(exif$Focal.Length,Focal.Length>85)))/NROW(exif)
+norm<-NROW(c(subset(exif$Focal.Length,Focal.Length>35&Focal.Length<=70)))/NROW(exif)
+mtele<-NROW(c(subset(exif$Focal.Length,Focal.Length>70&Focla.length<=135)))/NROW(exif)
+tele<-NROW(c(subset(exif$Focal.Length,Focal.Length>135)))/NROW(exif)
 ```
-Where our variables represent the fraction of shots in that category: wide, slight telephoto and telephoto. Let's visualize this. We begin by making a data frame with this data:
+Where our variables represent the fraction of shots in that category: wide, normal, medium telephoto and telephoto. Let's visualize this. We begin by making a data frame with this data:
 
 ```R
-style<-data.frame(Range=c("Wide","Slight.Tele","Telephoto"),Fraction=c(wide,stele,tele))
+ style<-data.frame(Range=c("Wide","Normal","Med.Tele","Telephoto"),Fraction=c(wide,norm,mtele,tele))
 ```
-Next we visualize in the form of a pie chart:
+First we look at the numbers in a table:
+
+|Range|Fraction|
+|---|---|
+|Wide|0.675|
+|Normal|0.221|
+|Med.Tele|0.091|
+|Telephoto|0.013|
+
+Next we visualize with a pie chart:
 
 ```R
-#yo
-code
+#We create a bar chart then turn it into a pie chart, creating custom breaks to help visualize the slices of pie
+bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identity")+scale_y_continuous(breaks=c(0,0.25,0.5,0.75,1),labels=c("0%","25%","50%","75%","100%"))+xlab("")+ylab("")
+pie<-bar+coord_polar(theta="y",start=0)
 ```
 
 
