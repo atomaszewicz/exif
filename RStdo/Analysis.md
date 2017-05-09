@@ -25,7 +25,8 @@ Since R doesn't have a built-in function to find the mode of a dataset, we find 
 ```R
 Mode <- function(x) {
      ux <- unique(x)
-     ux[which.max(tabulate(match(x, ux)))]}
+     ux[which.max(tabulate(match(x, ux)))]
+}
  ```
  
  Then we study the mode of our columns of interest, and we might as well create a data frame of the modes while we're at it:
