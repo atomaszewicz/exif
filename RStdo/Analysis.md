@@ -203,7 +203,7 @@ Where 'cat()' is a strpiped-down version of 'print()' (not the lack of [1]s in t
 |Shutter.Speed|0.609|0.569|0.589|
 |Focal.Length|0.210|0.095|0.152|
 |ISO|0.752|0.709|0.730|
-|Avg. (no F.L.)|<span style="color:blue">0.669</span>|0.599|0.634|
+|Avg. (no F.L.)|0.669|0.599|0.634|
 
 So compared to the out features, I shot the mode focal length (27mm) WAY more than the second and third modes (and by extension, all focal lengths). Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
