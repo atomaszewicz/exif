@@ -32,16 +32,22 @@ Analyzing the new spreadsheet in R Studio, I studied aspects of the Exif to lear
 |Focal Length|27|
 |ISO|200|
 
-We note that though my camera can go up to ISO-10,000, I never shot above ISO-3200. This is no surprise, as I know the quality of the image begins to deteriorate above ISO-3200 on my decade-old camera. Further, I took more than half (52.9%) of my photos below and including ISO-500, which figures, as I mostly shoot in the daytime.
+A rule-of-thumb is to properly expose your image (neither overexpose nor underexpose) is to have your shutter speed as the reciprocal of your ISO. With the modes being 1/200s (0.05) and 200 (respectively), it is clear that I follow this rule, conciously or not.
 
+### Aperture
 The mode aperture is f/3.5, my camera's largest, I shoot between f/3.5 and f/5.6 almost half the time (43.7%) and I rarely shoot an aperture smaller than f/11, with this occuring on only 14.5% of my shots. So it is clear that I like large apertures, which implies that I like to have a lot of light in my scene, but not a lot in focus (i.e. isolating the subject with the focus).
 
+### Shutter Speed
 A shutter speed of 1/200 s is relatively slow, this agrees with what I know: that I mostly shoot still life, and rarely things like sports. The fastest shutter speed I used was 1/4000s, the maximum for my camera, but the slowest was 1.1s, not quite the 30s. In fact, I rarely did anything slower than 1/4s, with only 36 such occasions (1.5% of my shots).
 
+### Focal Length
+As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. I knew that I mostly shot at small focal lengths, but I didn't know it was so extreme: I took over half of my shots at my lens' lowest focal length, and over two thirds at the 3 lowest focal lengths. Unsuprising after hearing this later result, but still interesting, we found that the three first modes correspond to three shortest focal lengths (respectively). Further, we found that the first mode occurs much more often than the next two modes, when compared with our other 3 factors. Lastly, looking at the 4 lens categories, wide (18-35mm), normal (35-75mm), medium telephoto (75-135mm), and telephoto (135-200mm), I shot mostly in the 'wide' category and progressively less as the focal length increased.
 
-As mentioned, shooting at lower focal lengths means that the scene is less magnified, and you have a larger FOV. Since I shoot most at my lens' lowest focal length, this could indicate that I like capturing large scenes.
+### ISO
 
-A rule-of-thumb is to properly expose your image (neither overexpose nor underexpose) is to have your shutter speed as the reciprocal of your ISO. With the modes being 1/200s (0.05) and 200 (respectively), it is clear that I follow this rule, conciously or not.
+We note that though my camera can go up to ISO-10,000, I never shot above ISO-3200. This is no surprise, as I know the quality of the image begins to deteriorate above ISO-3200 on my decade-old camera. Further, I took more than half (52.9%) of my photos below and including ISO-500, which figures, as I mostly shoot in the daytime.
+
+
 
 
 # Future Improvements
@@ -49,4 +55,4 @@ To improve this project, I could study the Exif data of the 2 old lenses i bough
 
 Another improvement would be to fix the date-and-time data in order to analyze what day-of-the-week/time-of-day I shoot at most, and then how these factors change as the seasons change and the sun is up/down at different times and the weather changes.
 
-Lastly, as we saw in the focal length section, the focal length mode (equiv. 27mm) was used over 50% of the time. To improve this analysis, we could account for the fact that this is the base focal length by 'toning down' this the number of occurances of this focal length, which i believe would give a better representation of my shooting style, and how often I shoot in each 'Range' (see Analysis:Focal Length for more discussion).
+Lastly, as we saw in the focal length section, the focal length mode (equiv. 27mm) was used over 50% of the time. To improve this analysis, we could account for the fact that this is the base focal length by 'toning down' this the number of occurances of this focal length, which i believe would give a better representation of my shooting style, and how often I shoot in each 'Range' (see the Focal Length section of the [Analysis](https://github.com/atomaszewicz/exif/edit/master/RStdo/Analysis.md) for more discussion).
