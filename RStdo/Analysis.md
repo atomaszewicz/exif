@@ -206,7 +206,7 @@ So the second mode only has 21% as many occurances as the first, and the third m
 
 To see if this is significant, we explore the first few modes in the other 3 data sets and compare. 
 
-Note: *At this point, I decide to only use the first 3 modes. I made this desicion after exploring the fourth, fifth and sixth modes of our datasets and realizing that the nature of all the features effects the later modes too strongly. You can see the graph [here](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/6moderatio.png)*
+Note: *At this point, I decide to only use the first 3 modes. I made this desicion after exploring the fourth, fifth and sixth modes of our datasets and realizing that the nature of all the features effects the later modes too strongly. You can see the graph [here](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/6moderatio.png?raw=TRUE)*
 
 First we create a function to display the mode ratios:
 
