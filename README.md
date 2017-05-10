@@ -10,7 +10,7 @@ Here are some definitions of terms that will come up in this project:
 **Equivalent Focal Length**: My camera has a 2/3 size sensor, which ends up making the focal length 3/2 times as big. Thus the 18-135mm zoom lens, when used on my camera, is the equivalent of a 27-202.5mm lens. <br />
 **Aperture**: The size of the diaphragm that the light travels through in the lens. This ends up translating into how much of the scene is in focus. Higher numbers mean a smaller hole, and more in focus. When you detail a lens, you generally say it's largest aperture (smallest number). Aperture is also called "f-stop" or indicated by f/x, where x as a number (usually between 1.4 and 64). Here is a picture that might help explain aperture better:
 
-![Aperture](https://petapixel.com/assets/uploads/2016/06/aperture-effect-chart-2-710x700.jpg)
+![Aperture V Aid](http://acdsystems.com/images/community/posts/aperture-Photographer-CheatSheet-Segments.jpg)
 
 # Outline
 Investigating the EXIF metadata of the photos I have taken with my Nikon D80, with a kit lens of focal length 18-135mm with a largest aperture of f/3.5-5.6, depending on the focal length. The purpose of this project is to study my style of photography, and investigate what camera/lens I should purchase next.
