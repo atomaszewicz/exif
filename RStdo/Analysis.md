@@ -99,7 +99,7 @@ Let's make a graph of this data:
 #We choose custom line breaks to help emphasize our mode, and make range (0,30) even though there is a data point at 33 to increase resolution
 ap<-ggplot(exif,aes(Aperture))+geom_bar()
 labs<-ylab("Counts")+,limits=c(3,30))+ggtitle("Aperture Usage*",subtitle="18-135mm f/3.5-5.6 Nikkor Lens, Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")
-scalew<-scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30)
+scales<-scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30)
 ```
 ![Aperture Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/aperture.png?raw=TRUE)
 
@@ -140,8 +140,8 @@ Graphing Shutter Speed:
 #We cut off anything about 1/4s due to increase resolution (since longer shutter speeds than 1/4s were used rarely (1.5%))
 
 ss<-ggplot(exif,aes(Shutter.Speed))+geom_histogram(binwidth=0.0005)
-labs<-ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin 
-scale<-scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))Size")
+labs<-ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin")
+scales<-scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))Size")
 x_axis<-theme(axis.text.x=element_text(angle=90,vjust=c(-0.3,0.4,0.9,0.4,0.4,0.4)))
 ```
 ![Shutter Speed Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/shutterspeed.png?raw=TRUE)
@@ -284,8 +284,8 @@ Now we plot a histogram of focal length:
 
 ```R
 fl<-ggplot(exif,aes(Focal.Length))+geom_bar()
-scale<-scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))
-labs<-xlab("Focal Length (Equivalent)")+ ylab("Counts")+labs(caption="*2500 shots (Jan-May 2016)")ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")
+scales<-scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))
+labls<-xlab("Focal Length (Equivalent)")+ ylab("Counts")+labs(caption="*2500 shots (Jan-May 2016)")ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")
 ```
 
 ![Focal Length plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/focal%20length.png?raw=TRUE)
@@ -313,7 +313,7 @@ Now we visualize the ISO data:
 
 ```R
 iso<-ggplot(exif,aes(ISO))+geom_bar()+ylab("Counts")
-scale<-scale_x_continuous(breaks=c(0,500,1000,1500,2000,2500,3000))
-labs<-ggtitle("ISO Usage*",subtitle="Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")\
+scales<-scale_x_continuous(breaks=c(0,500,1000,1500,2000,2500,3000))
+labls<-ggtitle("ISO Usage*",subtitle="Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")\
 ```
 ![ISO Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/iso.png?raw=TRUE)
