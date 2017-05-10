@@ -99,7 +99,7 @@ Let's make a graph of this data:
 #We choose custom line breaks to help emphasize our mode, and make range (0,30) even though there is a data point at 33 to increase resolution
 ap<-ggplot(exif,aes(Aperture))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30),limits=c(3,30))+ggtitle("Aperture Usage*",subtitle="18-135mm f/3.5-5.6 Nikkor Lens, Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")
 ```
-![Aperture Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/aperture.png?raw=TRUE)
+![Aperture Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/aperture.png?raw=TRUE)
 
 ## Shutter Speed
 
@@ -139,7 +139,7 @@ Graphing Shutter Speed:
 
 ss<-ggplot(exif,aes(Shutter.Speed))+geom_histogram(binwidth=0.0005)+ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin Size")+theme(axis.text.x=element_text(angle=90,vjust=c(-0.3,0.4,0.9,0.4,0.4,0.4)))
 ```
-![Shutter Speed Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/shutterspeed.png?raw=TRUE)
+![Shutter Speed Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/shutterspeed.png?raw=TRUE)
 
 ## Focal Length
 
@@ -206,7 +206,7 @@ So the second mode only has 21% as many occurances as the first, and the third m
 
 To see if this is significant, we explore the first few modes in the other 3 data sets and compare. 
 
-Note: *At this point, I decide to only use the first 3 modes. I made this desicion after exploring the fourth, fifth and sixth modes of our datasets and realizing that the nature of all the features effects the later modes too strongly. I will include a graph of the fourth, fifth and sixth modes for all 4 features in the appendix, and further discuss my decision.*
+Note: *At this point, I decide to only use the first 3 modes. I made this desicion after exploring the fourth, fifth and sixth modes of our datasets and realizing that the nature of all the features effects the later modes too strongly. You can see the graph [here](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/6moderatio.png)*
 
 First we create a function to display the mode ratios:
 
@@ -272,7 +272,7 @@ Next we visualize with a pie chart:
 bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identity")+scale_y_continuous(breaks=(NULL),labels=(""))+xlab("")+ylab("")
 pie<-bar+coord_polar(theta="y",start=0)
 ```
-![Range Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie_nolab.png?raw=TRUE)
+![Range Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/range_pie_nolab.png?raw=TRUE)
 
 Now we plot a histogram of focal length:
 
@@ -280,7 +280,7 @@ Now we plot a histogram of focal length:
 fl<-ggplot(exif,aes(Focal.Length))+geom_bar()+ ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")+xlab("Focal Length (Equivalent)")+ ylab("Counts")+scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))+ labs(caption="*2500 shots (Jan-May 2016)")
 ```
 
-![Focal Length plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/focal%20length.png?raw=TRUE)
+![Focal Length plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/focal%20length.png?raw=TRUE)
 
 
 ## ISO
@@ -306,4 +306,4 @@ Now we visualize the ISO data:
 ```R
 iso<-ggplot(exif,aes(ISO))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(0,500,1000,1500,2000,2500,3000))+ggtitle("ISO Usage*",subtitle="Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")\
 ```
-![ISO Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/iso.png?raw=TRUE)
+![ISO Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/iso.png?raw=TRUE)
