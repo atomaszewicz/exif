@@ -102,23 +102,7 @@ ap<-ggplot(exif,aes(Aperture))+geom_bar()+ylab("Counts")+scale_x_continuous(brea
 ![Aperture Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/aperture.png?raw=TRUE)
 
 
-## ISO
 
-Next I study my usage of ISO. Firstly, I know that I rarely shoot above ISO-3200, since my decade-old camera doesn't perform well above this ISO value.
-
-```R
-NROW(c(subset(exif$ISO,ISO>3200)))
-[1] 0
-```
-There are no such rows, as expected.
-
-Next I know that I shoot mostly in the day time, wherein one usually does not need to exceed ISO-500.
-
-```R
-NROW(c(subset(exif$ISO,ISO<=500)))/NROW(exif)
-[1] 0.52891
-```
-This 52.9% is a little lower than I expected, so maybe, though I usually shoot in the day time, I photograph low-light scenes (which require a higher sensitivity to light i.e. higher ISO)
 
 
 ## Shutter Speed
@@ -150,7 +134,16 @@ NROW(c(subset(exif$Shutter.Speed,Shutter.Speed>0.1)))/NROW(exif)
 
 So I only used a shutter speed of slower than 1/10s 5.8% of the time, a bit more often than I expected. In hindsight, long exposures are quite difficult, and often take many attempts, so though I didn't have many sessions, for each one I would take many photos.
 
+Graphing Shutter Speed:
 
+```R
+#Note that we again use custom breaks to increase visualization (and adjust them using the 'theme' environment so they don't overlap)
+#We chose a bincount of 1/2000s as any smaller lead to poor aesthetic quality, and any bigger lost the importance of the data
+#We cut off anything about 1/4s due to increase resolution (since longer shutter speeds than 1/4s were used rarely (1.5%))
+
+ss<-ggplot(exif,aes(Shutter.Speed))+geom_histogram(binwidth=0.0005)+ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin Size")+theme(axis.text.x=element_text(angle=90,vjust=c(-0.3,0.4,0.9,0.4,0.4,0.4)))
+```
+[!Shutter Speed Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/shutterspeed.png?raw=TRUE)
 
 ## Focal Length
 
@@ -268,6 +261,24 @@ pie<-bar+coord_polar(theta="y",start=0)
 ```
 ![Range Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie_nolab.png?raw=TRUE)
 
+## ISO
+
+Next I study my usage of ISO. Firstly, I know that I rarely shoot above ISO-3200, since my decade-old camera doesn't perform well above this ISO value.
+
+```R
+NROW(c(subset(exif$ISO,ISO>3200)))
+[1] 0
+```
+There are no such rows, as expected.
+
+Next I know that I shoot mostly in the day time, wherein one usually does not need to exceed ISO-500.
+
+```R
+NROW(c(subset(exif$ISO,ISO<=500)))/NROW(exif)
+[1] 0.52891
+```
+This 52.9% is a little lower than I expected, so maybe, though I usually shoot in the day time, I photograph low-light scenes (which require a higher sensitivity to light i.e. higher ISO)
+
 
 
 Let's visualize our data. First we will load our favorite plotting plugin:
@@ -288,9 +299,4 @@ Graphing the Focal Length Equivalent:
 ```R
 fl<-ggplot(exif,aes(Focal.Length))+geom_bar()+ ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")+xlab("Focal Length (Equivalent)")+ ylab("Counts")+scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))+ labs(caption="*2500 shots (Jan-May 2016)")
 ```
-Graphing Shutter Speed:
 
-```R
-ss<-ggplot(exif,aes(Shutter.Speed))+geom_histogram(binwidth=0.0005)+ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin Size")+theme(axis.text.x=element_text(angle=90,vjust=c(-0.3,0.4,0.9,0.4,0.4,0.4)))
-```
-Noting that we cut off anything about 1/4s due to (A) Few data points about 1/4s and (B) To improve readibility and resolution of region with most data.
