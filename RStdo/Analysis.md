@@ -241,7 +241,7 @@ Where our variables represent the fraction of shots in that category: wide, norm
 ```
 First we look at the numbers in a table:
 
-|Range|Fraction|
+|Range|Fraction| ![Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie_nolab.png?raw=TRUE)
 |---|---|
 |Wide|0.675|
 |Normal|0.221|
@@ -256,7 +256,7 @@ bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identi
 pie<-bar+coord_polar(theta="y",start=0)
 ```
 
-![Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie_nolab.png?raw=TRUE)
+
 
 To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
 
