@@ -252,10 +252,11 @@ Next we visualize with a pie chart:
 
 ```R
 #We create a bar chart then turn it into a pie chart, creating custom breaks to help visualize the slices of pie
-bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identity")+scale_y_continuous(breaks=c(0,0.25,0.5,0.75,1),labels=c("0%","25%","50%","75%","100%"))+xlab("")+ylab("")
+bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identity")+scale_y_continuous(breaks=(NULL),labels=(""))+xlab("")+ylab("")
 pie<-bar+coord_polar(theta="y",start=0)
 ```
 
+[[file:///C:/Users/hobbo/Documents/Data/Camera/range_pie_nolab.png]]
 
 To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
 
