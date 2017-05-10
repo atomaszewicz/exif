@@ -18,7 +18,7 @@ In this project we investigate my style of photography by analyzing Exif data fo
 # Data
 The data we use is from a 5 month period (Jan-May 2016) wherein I took ~2500 photos. This decision was made because during this period, I used only 1 camera and 1 lens. This helps keep a level of objectivity, as different combinations of cameras and lenses have different focal lengths, apertures, and different cameras have different shutter speeds and ISO ranges. Further, the lens I used was a zoom lens which allows an extra degree of freedom over fixed focal length lenses. 
 
-It is simple to view an individual image's Exif data (Windows: Right Click -> Properties -> Details) but less so for a couple thousand images. After looking online, I found Phil Harvey's wonderful ExifTool (http://www.sno.phy.queensu.ca/~phil/exiftool/). Using this program, I exported the Exif of my photos into a CSV, cleaned it up, then made an Excel spreadsheet(.xlsx filetype) of just the data I was interested in studying. 
+It is simple to view an individual image's Exif data (Windows: Right Click -> Properties -> Details) but less so for a couple thousand images. After looking online, I found Phil Harvey's wonderful [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/). Using this program, I exported the Exif of my photos into a CSV, cleaned it up, then made an Excel spreadsheet(.xlsx filetype) of just the data I was interested in studying. 
 
 # Analysis
 Analyzing the new spreadsheet in R Studio, I studied aspects of the Exif to learn about my style of shooting. See [Analysis](https://github.com/atomaszewicz/exif/edit/master/RStdo/Analysis.md) for more details.
