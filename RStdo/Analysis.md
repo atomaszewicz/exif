@@ -99,7 +99,7 @@ Let's make a graph of this data:
 #We choose custom line breaks to help emphasize our mode, and make range (0,30) even though there is a data point at 33 to increase resolution
 ap<-ggplot(exif,aes(Aperture))+geom_bar()
 labs<-ylab("Counts")+,limits=c(3,30))+ggtitle("Aperture Usage*",subtitle="18-135mm f/3.5-5.6 Nikkor Lens, Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")
-scale<-scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30)
+scalew<-scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30)
 ```
 ![Aperture Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/aperture.png?raw=TRUE)
 
