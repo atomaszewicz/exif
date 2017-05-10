@@ -256,7 +256,7 @@ bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identi
 pie<-bar+coord_polar(theta="y",start=0)
 ```
 
-[[file:///C:/Users/hobbo/Documents/Data/Camera/range_pie_nolab.png]]
+[Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie.png)
 
 To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
 
