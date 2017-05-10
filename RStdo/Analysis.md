@@ -13,7 +13,7 @@ load.packages("xlsx")
 require("xlsx")
  ```
  
- We also load our favorite graph-creating package now so that we don't forget later:
+ We also load our favorite graph-creating package so that we can plot our data.
  
  ```R
 install.packages("ggplot2")
@@ -67,6 +67,39 @@ As mentioned, shooting at lower focal lengths means that the scene is less magni
 
 There is a rule-of-thumb that says having your shutter speed as the inverse of your ISO is a good way to properly expose (neither overexpose nor underexpose) your image. The modes for these are 1/200s (0.005s) and 200 respectively. This implies that I follow this rule, conciously or not.
 
+## Aperture
+
+Let's find the largest and smallest apertures that I shot with:
+
+```R
+min(exif$Aperture)
+[1] 3.5
+max(exif$Aperture)
+[1] 36
+NROW(c(subset(exif$Aperture,Aperture=36)))
+[1] 1
+```
+The largest aperture I used was f/3.5, my camera's largest, and smallest used was f/36, it's smallest, with only one such occurance. Anything larger than f/11 is seen as 'large', and smaller 'small'. I think that I shoot mostly 'large', since I like bright scenes and to have less in focus i.e. isolate the subject.
+
+```R
+NROW(c(subset(exif$Aperture,Aperture<=11)))/NROW(exif)
+[1] 0.855
+```
+This agrees with my presumption, I shoot larger than or equal to f/11 a total of 85.5% of the time. Further, larger than f/5.6 is seen as 'very large' and I would say I shoot in this category a lot.
+
+```R
+NROW(c(subset(exif$Aperture,Aperture<=5.6)))/NROW(exif)
+[1] 0.437
+```
+So nearly half my shots (43.7%) are in the 'very large' aperture category! As mentioned above, I know that I shoot mostly with a large aperture, but i didn't know it was this extreme! 
+
+Let's make a graph of this data:
+
+```R
+#We choose custom line breaks to help emphasize our mode, and make range (0,30) even though there is a data point at 33 to increase resolution
+ap<-ggplot(exif,aes(Aperture))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30),limits=c(3,30))+ggtitle("Aperture Usage*",subtitle="18-135mm f/3.5-5.6 Nikkor Lens, Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")
+```
+![Aperture Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/aperture.png?raw=TRUE)
 
 
 ## ISO
@@ -117,31 +150,7 @@ NROW(c(subset(exif$Shutter.Speed,Shutter.Speed>0.1)))/NROW(exif)
 
 So I only used a shutter speed of slower than 1/10s 5.8% of the time, a bit more often than I expected. In hindsight, long exposures are quite difficult, and often take many attempts, so though I didn't have many sessions, for each one I would take many photos.
 
-## Aperture
 
-Let's find the largest and smallest apertures that I shot with:
-
-```R
-min(exif$Aperture)
-[1] 3.5
-max(exif$Aperture)
-[1] 36
-NROW(c(subset(exif$Aperture,Aperture=36)))
-[1] 1
-```
-The largest aperture I used was f/3.5, my camera's largest, and smallest used was f/36, it's smallest, with only one such occurance. Anything larger than f/11 is seen as 'large', and smaller 'small'. I think that I shoot mostly 'large', since I like bright scenes and to have less in focus i.e. isolate the subject.
-
-```R
-NROW(c(subset(exif$Aperture,Aperture<=11)))/NROW(exif)
-[1] 0.855
-```
-This agrees with my presumption, I shoot larger than or equal to f/11 a total of 85.5% of the time. Further, larger than f/5.6 is seen as 'very large' and I would say I shoot in this category a lot.
-
-```R
-NROW(c(subset(exif$Aperture,Aperture<=5.6)))/NROW(exif)
-[1] 0.437
-```
-So nearly half my shots (43.7%) are in the 'very large' aperture category! As mentioned above, I know that I shoot mostly with a large aperture, but i didn't know it was this extreme! 
 
 ## Focal Length
 
@@ -241,12 +250,14 @@ Where our variables represent the fraction of shots in that category: wide, norm
 ```
 First we look at the numbers in a table:
 
-|Range|Fraction| ![Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie_nolab.png?raw=TRUE)
+|Range|Fraction| 
 |---|---|
 |Wide|0.675|
 |Normal|0.221|
 |Med.Tele|0.091|
 |Telephoto|0.013|
+
+We see that I shot progressively less the longer the focal length.
 
 Next we visualize with a pie chart:
 
@@ -255,14 +266,9 @@ Next we visualize with a pie chart:
 bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identity")+scale_y_continuous(breaks=(NULL),labels=(""))+xlab("")+ylab("")
 pie<-bar+coord_polar(theta="y",start=0)
 ```
+![Range Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie_nolab.png?raw=TRUE)
 
 
-
-To accomplish this, we must 'tone down' the 27mm data. To accomplish this, we look at our other 3 data sets, to see how the first few modes relate. To begin we create a function that returns the argument as a string, then we create our function:
-
-
-
-# blah blah blah
 
 Let's visualize our data. First we will load our favorite plotting plugin:
 
@@ -271,9 +277,7 @@ install.packages("ggplot2")
 require("ggplot2")
 ```
 
-```R
-ap<-ggplot(exif,aes(Aperture))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(3.5,5,10,15,20,25,30),limits=c(3,30))+ggtitle("Aperture Usage*",subtitle="18-135mm f/3.5-5.6 Nikkor Lens, Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")
-```
+
 Graphing the ISO:
 
 ```R
