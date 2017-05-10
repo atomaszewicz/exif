@@ -101,10 +101,6 @@ ap<-ggplot(exif,aes(Aperture))+geom_bar()+ylab("Counts")+scale_x_continuous(brea
 ```
 ![Aperture Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/aperture.png?raw=TRUE)
 
-
-
-
-
 ## Shutter Speed
 
 First, what is the fastest shutter speed I used?
@@ -143,7 +139,7 @@ Graphing Shutter Speed:
 
 ss<-ggplot(exif,aes(Shutter.Speed))+geom_histogram(binwidth=0.0005)+ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin Size")+theme(axis.text.x=element_text(angle=90,vjust=c(-0.3,0.4,0.9,0.4,0.4,0.4)))
 ```
-[!Shutter Speed Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/shutterspeed.png?raw=TRUE)
+![Shutter Speed Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/shutterspeed.png?raw=TRUE)
 
 ## Focal Length
 
@@ -224,8 +220,6 @@ Let's put all the mode ratio data into a table:
 |ISO|0.752|0.709|0.730|
 |Avg. (no F.L.)|0.669|0.599|0.634|
 
-
-
 So compared to the out features, I shot the mode focal length (27mm) WAY more than the second and third modes (and by extension, all focal lengths). Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
 Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 35-70mm as 'normal', 70-135mm as 'medium telephoto' and 135-200mm 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. 
@@ -261,6 +255,15 @@ pie<-bar+coord_polar(theta="y",start=0)
 ```
 ![Range Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/range_pie_nolab.png?raw=TRUE)
 
+Now we plot a histogram of focal length:
+
+```R
+fl<-ggplot(exif,aes(Focal.Length))+geom_bar()+ ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")+xlab("Focal Length (Equivalent)")+ ylab("Counts")+scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))+ labs(caption="*2500 shots (Jan-May 2016)")
+```
+
+![Focal Length plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/focal%20length.png?raw=TRUE)
+
+
 ## ISO
 
 Next I study my usage of ISO. Firstly, I know that I rarely shoot above ISO-3200, since my decade-old camera doesn't perform well above this ISO value.
@@ -279,24 +282,9 @@ NROW(c(subset(exif$ISO,ISO<=500)))/NROW(exif)
 ```
 This 52.9% is a little lower than I expected, so maybe, though I usually shoot in the day time, I photograph low-light scenes (which require a higher sensitivity to light i.e. higher ISO)
 
-
-
-Let's visualize our data. First we will load our favorite plotting plugin:
-
-```R
-install.packages("ggplot2")
-require("ggplot2")
-```
-
-
-Graphing the ISO:
+Now we visualize the ISO data:
 
 ```R
 iso<-ggplot(exif,aes(ISO))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(0,500,1000,1500,2000,2500,3000))+ggtitle("ISO Usage*",subtitle="Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")\
 ```
-Graphing the Focal Length Equivalent:
-
-```R
-fl<-ggplot(exif,aes(Focal.Length))+geom_bar()+ ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")+xlab("Focal Length (Equivalent)")+ ylab("Counts")+scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))+ labs(caption="*2500 shots (Jan-May 2016)")
-```
-
+![ISO Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/iso.png?raw=TRUE)
