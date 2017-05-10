@@ -32,7 +32,7 @@ Analyzing the new spreadsheet in R Studio, I studied aspects of the Exif to lear
 |Focal Length|27|
 |ISO|200|
 
-A rule-of-thumb is to properly expose your image (neither overexpose nor underexpose) is to have your shutter speed as the reciprocal of your ISO. With the modes being 1/200s (0.05) and 200 (respectively), it is clear that I follow this rule, conciously or not.
+A rule-of-thumb is to properly expose your image (neither overexpose nor underexpose) is to have your shutter speed as the reciprocal of your ISO. With the modes being 1/200s (0.05s) and 200 (respectively), it is clear that I follow this rule, conciously or not.
 
 ### Aperture
 The mode aperture is f/3.5, my camera's largest, I shoot between f/3.5 and f/5.6 almost half the time (43.7%) and I rarely shoot an aperture smaller than f/11, with this occuring on only 14.5% of my shots. So it is clear that I like large apertures, which implies that I like to have a lot of light in my scene, but not a lot in focus (i.e. isolating the subject with the focus).
