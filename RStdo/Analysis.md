@@ -148,7 +148,7 @@ We verify that the longest and shortest focal lengths are the same as the lens':
 ```R
 max(exif$Focal.Length)
 [1]202 
-min(exif$Focal.Length
+min(exif$Focal.Length)
 [1]27
 ```
 They are. How often did I shoot at the mode focal length of 27mm:
@@ -158,7 +158,26 @@ NROW(c(subset(exif$Focal.Length,Focal.Length==27)))/NROW(exif)
 [1] 0.517101
 ```
 
-51.7% of the time! This is quite an interesting result. This fits in with my knowledge that I photograph many large scenes, which will require large field of views (FOV) and thus, short focal lengths. To investiage this suprising result, let's first see what the next few modes are:
+51.7% of the time! This is quite an interesting result. This fits in with my knowledge that I photograph many large scenes, which will require large field of views (FOV) and thus, short focal lengths. Let's see how often I shoot at the lens' 3 shortest focal lengths:
+
+```R 
+#First we find the 3 shortest focal lengths
+s1<-min(exif$Focal.Length)
+s2<-min(c(subset(exif$Focal.Length,Focal.Length!=s1)))
+s3<-min(c(subset(exif$Focal.Length,Focal.Length!=s1&Focal.Length!=s2)))
+#Now we print these values, using 'cat()' a stripped-down version of 'print()'
+cat(s2,s3)
+30 33
+#Now we find the ratio of times we shot at these 3 focal lengths to all focal lengths
+ss<-c(subset(exif$Focal.Length,Focal.Length==s1|Focal.Length==s2|Focal.Length==s3))
+NROW(ss)/NROW(exif)
+[1]0.6750814
+```
+So we shot at the 3 shortest focal lengths over two thirds of the time (67.5%).
+
+
+
+To investiage this suprising result, let's first see what the next few modes are:
 
 ```R
 #Finding mode 1 (m1) from our table of modes
