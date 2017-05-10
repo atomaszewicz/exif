@@ -140,8 +140,8 @@ Graphing Shutter Speed:
 #We cut off anything about 1/4s due to increase resolution (since longer shutter speeds than 1/4s were used rarely (1.5%))
 
 ss<-ggplot(exif,aes(Shutter.Speed))+geom_histogram(binwidth=0.0005)
-labs<-ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin")
-scales<-scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))Size")
+labs<-ggtitle("Shutter Speed Usage*",subtitle="Nikon D80")+xlab("Shutter Speed[seconds]**")+ylab("Counts")+labs(caption=" *2500 shots (Jan-May 2016) \n **1/2000 second Bin Size")
+scales<-scale_x_continuous(limits=c(0,0.26),breaks=c(0.001,0.005,0.01,0.05,0.1,0.25),labels=c("1/1000","1/200","1/100","1/20","1/10","1/4"))
 xtext<-theme(axis.text.x=element_text(angle=90,vjust=c(-0.3,0.4,0.9,0.4,0.4,0.4)))
 ```
 ![Shutter Speed Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/shutterspeed.png?raw=TRUE)
