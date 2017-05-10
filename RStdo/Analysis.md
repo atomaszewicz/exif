@@ -220,7 +220,7 @@ m1m2m3function(x){
     cat("m3/m1:", NROW(c(subset(x,x==m3)))/NROW(c(subset(x,x==m1))))
 }
 ```
-Where 'cat()' is a stripped-down version of 'print()', and we use 'm2/m1' to signify the ratio of occurances of the second mode to the first, not the ratio of the modes numerical value. For example, the function gives output as this for the aperture mode ratios:
+We use 'm2/m1' to signify the ratio of occurances of the second mode to the first, not the ratio of the modes numerical value. For example, the function gives output as this for the aperture mode ratios:
 ```R
 m1m2m3(Aperture)
 m2/m1: 0.646
@@ -269,15 +269,17 @@ Next we visualize with a pie chart:
 
 ```R
 #We create a bar chart then turn it into a pie chart, creating custom breaks to help visualize the slices of pie
-bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identity")+scale_y_continuous(breaks=(NULL),labels=(""))+xlab("")+ylab("")
-pie<-bar+coord_polar(theta="y",start=0)
+bar<-ggplot(style,aes(x="",y=Fraction,fill=Range))+geom_bar(width=1,stat="identity")
+changes<-scale_y_continuous(breaks=(NULL),labels=(""))+xlab("")+ylab("")
+pie<-bar+changes+coord_polar(theta="y",start=0)
 ```
 ![Range Pie Chart](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/range_pie_nolab.png?raw=TRUE)
 
 Now we plot a histogram of focal length:
 
 ```R
-fl<-ggplot(exif,aes(Focal.Length))+geom_bar()+ ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")+xlab("Focal Length (Equivalent)")+ ylab("Counts")+scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))+ labs(caption="*2500 shots (Jan-May 2016)")
+fl<-ggplot(exif,aes(Focal.Length))+geom_bar()+scale_x_continuous(breaks=c(27,40,60,80,100,120,140,160,180,200,400))
+labs<-xlab("Focal Length (Equivalent)")+ ylab("Counts")+labs(caption="*2500 shots (Jan-May 2016)")ggtitle("Focal Length Usage*",subtitle="27-202mm (Equivalent) Nikkor Lens on Nikon D80")
 ```
 
 ![Focal Length plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/focal%20length.png?raw=TRUE)
@@ -304,6 +306,8 @@ This 52.9% is a little lower than I expected, so maybe, though I usually shoot i
 Now we visualize the ISO data:
 
 ```R
-iso<-ggplot(exif,aes(ISO))+geom_bar()+ylab("Counts")+scale_x_continuous(breaks=c(0,500,1000,1500,2000,2500,3000))+ggtitle("ISO Usage*",subtitle="Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")\
+iso<-ggplot(exif,aes(ISO))+geom_bar()+ylab("Counts")
+changes<-scale_x_continuous(breaks=c(0,500,1000,1500,2000,2500,3000))
+labs<-ggtitle("ISO Usage*",subtitle="Nikon D80")+labs(caption="*2500 shots (Jan-May 2016)")\
 ```
 ![ISO Plot](https://github.com/atomaszewicz/exif/blob/master/RStdo/Plots/iso.png?raw=TRUE)
