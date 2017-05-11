@@ -8,12 +8,12 @@ Here are some definitions of terms that will come up in this project:
 **Shutter Speed**: The amount of time the camera allows light in for , it is measured in seconds. Faster shutter speeds (thousandths of a second) are used when capturing quickly moving things, and used for things like sports. Longer shutter speeds (upwards of a quarter of a second) are usually used for long exposures, such as for night sky. My camera can take exposures between 1/4000s-30s.  <br />
 **Focal Length**: A measure of the field of view (FOV) and maginification of a camera lens. Usually measured in mm, a larger focal length means a smallers FOV but larger magnification. Focal lengths generally range from 18mm-200mm. Zoom lenses allow one to choose from a range (discrete, not continuous) of focal lengths, whereas a fixed focal length lens gives you only one focal length (for example, 35mm is a very popular fixed focal length for lenses). Here is a visual aid for understanding focal length
 
-![FL V aid](http://www.digital-photography-student.com/wp-content/uploads/2009/11/Focal_Length_Diag.png?raw=TRUE)
+![FL V aid](http://www.digital-photography-student.com/wp-content/uploads/2009/11/Focal_Length_Diag.png=400x)
 
 **Equivalent Focal Length**: My camera has a 2/3 sized sensor, which ends up making the focal length 3/2 times as big. Thus a 35mm lens on a 2/3 sized sensor would be the equivalent of a 52.5mm. <br/>
 **Aperture**: The size of the diaphragm that the light travels through in the lens. This ends up translating into how much of the scene is in focus. Higher numbers mean a smaller hole, and more in focus. When you detail a lens, you generally say it's largest aperture (smallest number). Aperture is also called "f-stop" or indicated by f/x, where x as a number (usually between 1.4 and 64). Here is a picture that might help explain aperture better:
 
-![Aperture V Aid](http://acdsystems.com/images/community/posts/aperture-Photographer-CheatSheet-Segments.jpg?raw=TRUE)
+![Aperture V Aid](http://acdsystems.com/images/community/posts/aperture-Photographer-CheatSheet-Segments.jpg)
 
 # Outline
 In this project we investigate my style of photography by analyzing Exif data for photos i've taken. The inspiration came from trying to decide what camera and lens to buy next. We select photos on my hardrive, scrape the Exif into a CSV, and analyze in RStudio and Excel.
