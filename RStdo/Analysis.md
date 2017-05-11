@@ -246,7 +246,7 @@ Let's put all the mode ratio data into a table:
 
 So compared to the out features, I shot the mode focal length (27mm) WAY more than the second and third modes (and by extension, all focal lengths). Since 27mm is my lens' shortest focal length, this might imply that I just leave my lens and take the shot without adjusting. It is common to take a photo without touching the settings, review the photo on the screen, then adjust your settings accordingly, which could explain why I shot at 27mm so often, even compared to the other two shortest focal lengths.
 
-Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 35-70mm as 'normal', 70-135mm as 'medium telephoto' and 135-200mm 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. 
+Now, your average photographer uses focal lengths between 18-200mm. 18-35mm is seen as 'wide angle', 35-70mm as 'normal', 70-135mm as 'medium telephoto' and 135-300mm 'telephoto'. So keeping in my that the focal length range of our lens is 27-202mm, we study how often I shoot in each range. 
 
 ```R
 wide<-NROW(c(subset(exif$Focal.Length,Focal.Length<=35)))/NROW(exif)
